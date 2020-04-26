@@ -1,0 +1,9 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+	<div>
+		<label for="name"> Nom de la Nouvelle Catégorie</label>
+		<input type="text" id="name" name="name" required>
+	</div>
+	<button type="submit" [disabled]="f.invalid">Enregistrer</button>
+
+</form>
+

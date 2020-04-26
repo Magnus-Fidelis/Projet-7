@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="block">
+		<h1>
+			Bienvenue sur le forum Trinity Fall
+		</h1>
+	</div>
+	<div class="block">
+		<h2>Catégories</h2>
+		<ul class="categories">
+			<li class="list-items" *ngFor="let category of categories" >
+				<h3 class="non-lu" [ngClass]="{'lu': category.read === 'lu', 'non-lu': category.read === 'non-lu'}"><a [routerLink]="'/forum/' +category._id">{{category.name}}</a></h3>
+			</li>
+			<li><a routerLink="/forum/editCategory"> Créer une nouvelle catégorie </a> </li> <!-- ajouter un if pour admin-->
+		</ul>
+	</div>
+	<div class="block">
+		<h2>Navigation</h2>
+		<ul>
+			<li>
+				<h3>
+					<a routerLink="/auth">Authentification</a>
+				</h3>
+			</li>
+			<li>
+				<h3>
+					<a routerLink="/forum">Page d'accueil</a>
+				</h3>
+			</li>
+			<li>
+				<h3>
+					<a routerLink="forum/compte">Mon profil</a>
+				</h3>
+			</li>
+		</ul>
+	</div>
+</div>

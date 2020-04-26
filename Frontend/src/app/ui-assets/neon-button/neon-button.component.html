@@ -1,0 +1,11 @@
+<div class="neon-button"
+[ngClass]="{'clicked': lightedUp}"
+(click)="clicked()"
+
+[ngStyle]="{'width': width}">
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<ng-content [ngClass]='{clicked: lightedUp}'></ng-content>
+</div>

@@ -1,0 +1,36 @@
+<div class="background">
+	<div class="userProfile">
+		<div class="userInformation">
+			<p>Votre nom de compte:</p>
+			<p class="border">{{user.name}}</p>
+			<p>Votre Email:</p>
+			<p class="border">{{user.email}}</p>
+
+			<p> Image de profil</p>
+		</div>
+	<div  class="userpicture">
+		<img src="{{user.avatar}}" alt="User-Profile" class="borderpicture">
+	</div>
+
+	<div class="formulaires">
+	<form #f="ngForm" (ngSubmit)="onPassword(f)" div class="passwordform">
+
+		<input type="password" id="password" name="password" ngModel required class="label">
+		<label for="password">Nouveau de mot de passe</label>
+	<div class="button">
+		<app-neon-button [width]="'auto'">
+			<button  type="submit" [disabled]="f.invalid" class="submit">Changer le mot de passe</button>
+		</app-neon-button>
+	</div>
+	</form>
+
+	<input type="file" (change)="onFileSelected($event)">
+	<div class="button">
+		<app-neon-button [width]="'auto'">
+			<button type="button" (click)="onUpload()" class="submit">Upload</button>
+		</app-neon-button>
+	</div>
+	</div>
+
+</div>
+

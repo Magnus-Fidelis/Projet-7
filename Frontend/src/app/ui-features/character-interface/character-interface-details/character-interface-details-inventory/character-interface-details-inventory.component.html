@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="topinfo">
+	  <div class="nb-item">
+			<span class="label">Nb. Objets : </span>{{spaceTaken}} / {{spaceMax}}</div>
+	  <div class="weight"><span class="label">Poids : </span>{{userCurrentWeight}} / {{userWeightMax}}</div>
+	</div>
+	<div class="item-container" *ngFor="let itemContainer of inventory" >
+		<div class="main-item">
+			<div class="case full">
+				<img src="{{itemContainer.container_img}}" alt="">
+			</div>
+			<p>{{itemContainer.container_name}}</p>
+		</div>
+		<div class="contained-items" *ngFor="let item of itemContainer.items">
+			<div class="case full" *ngIf="!item.empty; else elseBlock">
+				<img src="{{item.item_img}}" alt="">
+				<div class="tolltip">
+					<!--Later ~-->
+					Place Holder
+				</div>
+			</div>
+			<ng-template #elseBlock><div class="case empty"></div></ng-template>
+		</div>
+		<div class="sub-info">
+			<p class="total-weight"></p>
+		</div>
+		<hr>
+	</div>
+</div>

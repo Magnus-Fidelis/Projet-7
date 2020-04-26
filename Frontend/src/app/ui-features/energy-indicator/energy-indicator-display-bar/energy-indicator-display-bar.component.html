@@ -1,0 +1,27 @@
+<div class="chart">
+	<div class="bar {{ getColor() }}">
+			<div class="face top">
+					<div
+					class="growing-bar"
+					[ngClass]="{'animated': isAnimated}"
+					[ngStyle]='{width: energyPercent+"%"}'></div>
+			</div>
+			<div class="face side-0">
+					<div class="growing-bar"
+					[ngClass]="{'animated': isAnimated}"
+					[ngStyle]='{width: energyPercent+"%"}'></div>
+			</div>
+			<div class="face floor">
+					<div class="growing-bar"
+					[ngClass]="{'animated': isAnimated}"
+					[ngStyle]='{width: energyPercent+"%"}'></div>
+			</div>
+			<div class="face side-a"></div>
+			<div class="face side-b"></div>
+			<div class="face side-1">
+					<div class="growing-bar"
+					[ngClass]="{'animated': isAnimated}"
+					[ngStyle]='{width: energyPercent+"%"}'></div>
+			</div>
+	</div>
+</div>

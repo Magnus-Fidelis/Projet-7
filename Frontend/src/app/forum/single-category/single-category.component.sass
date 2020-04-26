@@ -1,0 +1,63 @@
+@import 'var'
+.container
+	margin: 15px
+	display: flex
+	flex-direction: column
+	width: calc(100% - 30px)
+	.singlecategory
+		background-color: $ui-background
+		border: 1px solid $ui-highlight
+		display: flex
+		flex-direction: column
+	h2
+		display: block
+		width: 100%
+		font-size: 4em
+		text-align: center
+		padding: 15px 0
+	.topic-list
+		width: 80%
+		margin: 0 10%
+		background-color: $ui-background
+		margin-top: -1px
+		position: relative
+		&::after
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			background-color: $ui-background
+		.topic
+			border: 1px solid $ui-highlight
+			display: flex
+			justify-content: space-between
+			padding: 15px
+			height: 80px
+			transition: .2s all ease-in-out
+			&:hover
+				box-shadow: 0 0 10px $ui-highlight, 0 0 20px $ui-highlight, 0 0 40px $ui-highlight
+			.topic-title
+				font-size: 3em
+				text-transform: capitalize
+		.right
+			display: flex
+			flex-direction: column
+			justify-content: center
+			align-items: flex-end
+
+
+a
+	color: white
+	text-decoration: none
+	font-size: 1.2em
+	transition: all .2s ease-in-out
+	position: relative
+	&:visited
+		color: white
+	&:hover
+		color: $ui-highlight
+
+	width: 100%
+	display: flex
+	justify-content: flex-end

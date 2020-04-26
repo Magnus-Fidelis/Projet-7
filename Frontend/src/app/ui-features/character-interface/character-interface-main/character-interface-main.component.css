@@ -1,0 +1,23 @@
+.character-interface {
+  margin: 50px;
+  width: 26%;
+}
+
+.character-interface .interface-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.character-interface .interface-details .interface-details-menu-list {
+  width: 25%;
+}
+
+.character-interface .interface-details .interface-details-content {
+  width: calc(75% - 40px);
+  margin: 20px;
+}
+/*# sourceMappingURL=character-interface-main.component.css.map */

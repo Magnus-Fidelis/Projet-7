@@ -1,0 +1,23 @@
+<div class="container">
+
+	<div class="singlecategory">
+	<h2>{{category.name}}</h2>
+	<a [routerLink]="['/forum']">Retour au forum</a>
+
+	</div>
+	<div class="topic-list">
+		<div class="topic" *ngFor="let topic of topics" routerLink="/forum/topic/{{topic.topic_uid}}">
+			<div class="left">
+				<h3 class="topic-title">
+					{{topic.name}}
+				</h3>
+				<p class="desc">{{topic.description}}</p>
+			</div>
+			<div class="right">
+				<!-- <p class="num-subject"><span class="num">123</span> Sujets</p>
+				<p class="num-messages"><span class="num">123</span> Messages</p> -->
+			</div>
+	</div>
+
+</div>
+

@@ -1,0 +1,103 @@
+@import 'var'
+
+
+.container
+	width: 100%
+	height: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+
+	.card
+		padding: 35px
+		border: 1px solid $ui-highlight
+		background-color: $ui-background
+		form
+			width: 100%
+			.field
+				display: flex
+				flex-direction: column
+				position: relative
+				margin-bottom: 35px
+				input
+					width: 100%
+					font-size: 1.8em
+					padding: 10px 10px 10px 5px
+					display: block
+					border: none
+					border-bottom: 1px solid #757575
+					background-color: transparent !important
+					color: white
+					&:-webkit-autofill
+						border: none
+						-webkit-text-fill-color: white
+						background: transparent
+						font-size: 1.8em
+						//-webkit-box-shadow: 0 0 0px 1000px $ui-background inset
+						transition: background-color 99999999s ease-in-out 0s
+						&:hover, &:focus
+							border: none
+							font-size: 1.8em
+							-webkit-text-fill-color: white
+							//-webkit-box-shadow: 0 0 0px 1000px #000 inset
+							//transition: background-color 5000s ease-in-out 0s
+					&:invalid:not(:placeholder-shown)
+						outline: none
+						&~label
+							top: -20px
+							font-size: 1.4em
+							color: $red
+					&:focus, &:valid
+						outline: none
+						&~label
+							top: -20px
+							font-size: 1.4em
+							color: $ui-highlight
+
+					&:focus
+						&~.bar::before, &~.bar::after
+							transform: scaleX(.5)
+						&:invalid:not(:placeholder-shown)
+							&~.bar::before, &~.bar::after
+								background-color: $red
+				label
+					color: #CCC
+					font-size: 1.8em
+					font-weight: $regular
+					position: absolute
+					pointer-events: none
+					left: 5px
+					top: 10px
+					transition: .2s ease all
+				.bar
+					position: relative
+					display: block
+					width: 100%
+					&::before, &::after
+						content: ''
+						height: 2px
+						width: 102%
+						bottom: 1px
+						position: absolute
+						background-color: $ui-highlight
+						transition: .2s ease all
+						transform: scaleX(0)
+					&::before
+						left: 49%
+						transform-origin: left
+					&::after
+						right: 49%
+						transform-origin: right
+.button
+	width: 100%
+	display: flex
+	justify-content: center
+	.submit
+		font-size: 1.8em
+		background: none
+		color: #CCC
+		border: none
+		width: 100%
+		height: 100%
+		padding: 20px
+		cursor: pointer

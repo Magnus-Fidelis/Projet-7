@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACpB,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,GAAG;CAQW;;AAVtB,AAGC,oBAHmB,CAGnB,kBAAkB,CAAC;EAClB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,UAAU;CAKT;;AAVpB,AAME,oBANkB,CAGnB,kBAAkB,CAGjB,4BAA4B,CAAC;EAC5B,KAAK,EAAE,GAAG;CAAG;;AAPhB,AAQE,oBARkB,CAGnB,kBAAkB,CAKjB,0BAA0B,CAAC;EAC1B,KAAK,EAAE,gBAAgB;EACvB,MAAM,EAAE,IAAI;CAAG",
+    "sources": [
+        "character-interface-main.component.sass"
+    ],
+    "names": [],
+    "file": "character-interface-main.component.css"
+}

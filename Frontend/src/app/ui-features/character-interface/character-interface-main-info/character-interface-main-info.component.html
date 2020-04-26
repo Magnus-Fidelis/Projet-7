@@ -1,0 +1,47 @@
+<div class ="character-main-infos">
+	<div class="top">
+		<div class="character">
+			<div class="avatar"><img src="{{character.avatar}}" alt="avatar joueur"></div>
+			<div class="name-and-title">
+				<div class="title">{{character.title}}</div>
+				<div class="name">{{character.name}}</div>
+			</div>
+		</div>
+		<div class="sub-infos">
+			<div class="nutrition">
+				<div class="text-and-bar hunger">
+					<div class="text">Faim</div>
+					<div class="bar" [attr.data-percent]="character.nutrition.hunger">
+						<span [ngStyle]="{'width.%': character.nutrition.hunger}"></span>
+					</div>
+				</div>
+				<div class="text-and-bar thrist">
+					<div class="text">Soif</div>
+					<div class="bar" [attr.data-percent]="character.nutrition.thirst">
+						<span [ngStyle]="{'width.%': character.nutrition.thirst}"></span>
+					</div>
+				</div>
+			</div>
+			<div class="money">Crédits : {{character.money | number:'9.0-0':'fr-FR'}} ₵r</div>
+		</div>
+	</div>
+	<div class="pv">
+		<div class="label">Santé</div>
+		<div class="bar" [attr.data-percent]="character.pv/character.pvmax*100 | number:'1.0-0'">
+			<span [ngStyle]="{'width.%': character.pv/character.pvmax*100 | number:'1.0-0'}"></span>
+		</div>
+	</div>
+	<div class="exp">
+		<div class="label">Lvl. <span class="number">100</span></div>
+		<div class="bar" [attr.data-percent]="character.exp/character.expToNextLevel*100 | number:'1.0-0'">
+			<span [ngStyle]="{'width.%': character.exp/character.expToNextLevel*100 | number:'1.0-0'}"></span>
+		</div>
+	</div>
+	<ul class="stats">
+		<li *ngFor="let stat of character.stats">
+			<div class="text">{{stat.short}}.</div>
+			<div class="value">{{stat.value}}</div>
+		</li>
+	</ul>
+	<div class="status">{{character.name}} {{character.action}}</div>
+</div>

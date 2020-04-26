@@ -1,0 +1,11 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+	<div>
+		<label for="name"> Nom du nouveau topic</label>
+		<input type="text" id="name" name="name" ngModel required>
+
+		<label for="description"> Description du topic </label>
+		<input type="text" id="description" name="description" ngModel required>
+	</div>
+	<button type="submit" [disabled]="f.invalid">Enregistrer</button>
+
+</form>

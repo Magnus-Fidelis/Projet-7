@@ -1,0 +1,9 @@
+<ul>
+	<app-private-message-link *ngFor="let message of messageList"
+	[title] = "message.title"
+	[picture] = "message.picture"
+	[membres] = "(message.membres.length == 1 ? message.membres[0].name : message.membres.length +' membres')"
+	[date] = "message.date">
+	></app-private-message-link>
+</ul>
+

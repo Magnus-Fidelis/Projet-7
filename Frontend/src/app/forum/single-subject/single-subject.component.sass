@@ -1,0 +1,162 @@
+@import 'var'
+
+.mat-form-field
+	margin-right: 12px
+.basic-container
+	padding: 30px
+
+.version-info
+	font-size: 8pt
+	float: right
+	margin: 8px
+.container
+	padding: 15px
+	height: 100%
+	display: flex
+	flex: 1 1 auto
+	flex-direction: column
+	justify-content: flex-start
+	width: 100%
+	.new-message
+		flex: 1 0 auto
+		padding-left: 60px
+		margin-left: -60px
+		max-height: 30%
+		min-height: 10%
+		transition: .5s all ease-in-out
+		overflow-y: scroll
+		position: relative
+
+		form
+			display: flex
+			flex-direction: column
+			align-items: center
+			width: 100%
+		.field
+			width: 100%
+			border: 1px solid $ui-highlight
+			padding: 15px
+			height: 100%
+			textarea
+				height: 100%
+				font-size: 1.4em
+				word-wrap: normal
+				overflow-x: scrol
+		.submit
+			border: none
+			background: none
+			padding: 15px
+			border: 1px solid $ui-highlight
+			color: white
+			margin-top: 15px
+			transition: .2s all ease-in-out
+			&:hover
+				box-shadow: 0 0 5px $ui-highlight, 0 0 10px $ui-highlight, 0 0 20px $ui-highlight
+
+	.subject
+		margin-bottom: -1px
+		border-bottom: 1px solid $ui-highlight
+		flex: 1 1 auto
+		width: 100%
+		overflow-y: scroll
+		min-height: 70%
+		h2
+			text-transform: capitalize
+			display: block
+			border: 1px solid $ui-highlight
+			width: 100%
+			font-size: 4em
+			background-color: $ui-background
+			text-align: center
+			padding: 15px 0
+		.pagination
+			text-align: right
+			font-size: 2.4em
+			margin-right: 15px
+			p
+				display: inline-block
+				margin: 0 15px
+			a
+				color: white
+				text-decoration: none
+				transition: .2s ease-in-out
+				&:hover
+					color: $cyan
+		.message-list
+			width: 80%
+			margin: 0 10%
+			background-color: $ui-background
+			margin-top: -1px
+			position: relative
+			&::after
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				background-color: $ui-background
+			.message
+				border: 1px solid $ui-highlight
+				display: flex
+				justify-content: space-between
+				padding: 15px
+				transition: all .5s ease-in-out
+				transform-origin: top
+					transform: scaleY(1)
+				&.deleted
+					transform: scaleY(0)
+
+				.left
+					width: 170px
+					padding: 15px
+					padding-left: 0
+					display: flex
+					flex-direction: column
+					justify-content: center
+					text-align: center
+					.avatar
+						margin: auto
+						width: 85px
+						height: 85px
+						margin-bottom: 5px
+					.user-name
+						font-size: 1.8em
+						margin-bottom: 5px
+					.titre
+						font-size: 1.4em
+						color: #ccc
+						margin-bottom: 5px
+				.right
+					width: calc(100% - 100px)
+					border: 1px solid $ui-highlight
+					padding: 15px
+					position: relative
+					transition: all .3s ease-in-out
+					&.highlighted
+						box-shadow: 0 0 10px $ui-highlight, 0 0 20px $ui-highlight, 0 0 40px $ui-highlight
+					ul
+						position: absolute
+						top: 5px
+						right: 5px
+						display: flex
+						justify-content: flex-end
+						li
+							margin: 0 0 0 25px
+							cursor: pointer
+							transition: all .3s ease-in-out
+							position: relative
+							&:hover
+								color: $ui-highlight
+								&::before
+									color: white
+							&:not(:first-child)::before
+								pointer-events: none
+								color: white
+								content: '|'
+								position: absolute
+								top: 0
+								left: -15px
+					.message-text
+						font-size: 1.4em
+
+

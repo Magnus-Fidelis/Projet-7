@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="card">
+		<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+			<div>
+				<div class="field">
+					<input type="text" id="name" placeholder=" " name="name" ngModel required>
+					<label for="name"> Nom du nouveau sujet</label>
+					<span class="bar"></span>
+				</div>
+
+				<div class="field">
+					<input type="text" id="description" placeholder=" " name="description" ngModel required>
+					<label for="description"> Description du sujet </label>
+					<span class="bar"></span>
+				</div>
+			</div>
+			<div class="button">
+				<app-neon-button [width]="'auto'"><button class="submit" type="submit" [disabled]="f.invalid">Enregistrer</button></app-neon-button>
+			</div>
+
+		</form>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<div class="box details">
+	<span class="horizontaux"></span>
+	<span class="verticaux"></span>
+	<span class="horizontaux"></span>
+	<span class="verticaux"></span>
+	<div [ngSwitch]="detailSelected">
+		<div *ngSwitchCase="'inventory'">
+			<app-character-interface-details-inventory>
+			</app-character-interface-details-inventory>
+		</div>
+		<div *ngSwitchCase="'cybernetic'">
+			<app-character-interface-details-cybernetic>
+			</app-character-interface-details-cybernetic>
+		</div>
+		<div *ngSwitchCase="'equipment'">
+			<app-character-interface-details-equipment>
+			</app-character-interface-details-equipment>
+		</div>
+		<div *ngSwitchCase="'statistics'">
+			<app-character-interface-details-statistics>
+			</app-character-interface-details-statistics>
+		</div>
+		<div *ngSwitchCase="'talents'">
+			<app-character-interface-details-talents>
+			</app-character-interface-details-talents>
+		</div>
+		<div *ngSwitchCase="'titles'">
+			<app-character-interface-details-title>
+			</app-character-interface-details-title>
+		</div>
+		<div *ngSwitchDefault>Fiche RP</div>
+	</div>
+</div>

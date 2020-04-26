@@ -1,0 +1,82 @@
+@import 'var'
+
+
+.container
+	margin: 15px
+	display: flex
+	flex-direction: column
+	width: calc(100% - 30px)
+	.topic
+		width: 100%
+		margin-bottom: 15px
+		.top
+			position: relative
+			text-transform: capitalize
+			display: block
+			border: 1px solid $ui-highlight
+			width: 100%
+			display: flex
+			justify-content: center
+			align-items: center
+			background-color: $ui-background
+			text-align: center
+			padding: 15px 0
+			z-index: 1
+			h2
+				font-size: 4em
+			.new
+				position: absolute
+				right: 15px
+				text-decoration: none
+				color: white
+				transition: all .5s ease-in-out
+				&:hover
+					color: $ui-highlight
+		.subject-list
+			width: 80%
+			margin: 0 10%
+			background-color: $ui-background
+			margin-top: -1px
+			position: relative
+			&::after
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				background-color: $ui-background
+			.subject
+				z-index: -1
+				border: 1px solid $ui-highlight
+				display: flex
+				justify-content: space-between
+				padding: 15px
+				height: 80px
+				cursor: pointer
+				transition: .2s all ease-in-out
+				&.lu
+					background-color: rgba(120, 120, 120, .3)
+					border: 1px solid rgba(120, 120, 120, 1)
+
+				&:hover
+					box-shadow: 0 0 10px $ui-highlight, 0 0 20px $ui-highlight, 0 0 40px $ui-highlight
+				.subject-title
+					font-size: 3em
+					text-transform: capitalize
+			.right
+				display: flex
+				flex-direction: column
+				justify-content: center
+				align-items: flex-end
+
+.favoris
+	background-color: rgba(cyan, 0.4)
+	width: 25px
+	height: 25px
+	font-size: 1.4em
+	border: 2px solid rgba(cyan, 0.8)
+	right: 100px
+	cursor: pointer
+	color: blue
+	position: absolute
+

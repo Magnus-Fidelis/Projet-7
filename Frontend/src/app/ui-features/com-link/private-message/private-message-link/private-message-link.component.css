@@ -1,0 +1,66 @@
+.message {
+  margin: 3px 0;
+  width: 100%;
+  height: 70px;
+  font-size: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  padding: 10px 10px;
+}
+
+.message:first-child {
+  margin-top: 0;
+}
+
+.message-image {
+  width: 50px;
+  height: 50px;
+}
+
+.message-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.infos {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: calc(100% - 70px);
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.infos p {
+  text-align: center;
+  margin: 0 10px;
+}
+
+.infos .subinfo {
+  font-size: .8em;
+}
+
+.infos .subinfo p {
+  margin: 0 10px;
+}
+
+.infos .subinfo .date {
+  font-size: 0.7em;
+}
+/*# sourceMappingURL=private-message-link.component.css.map */

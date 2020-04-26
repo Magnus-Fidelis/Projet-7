@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="topic">
+		<div class="top">
+			<h2>
+				{{topic[0].name}}
+			</h2>
+			<a class='new' routerLink="/forum/edit-sujet/{{topic[0].topic_uid}}"> Nouveau sujet </a>
+		</div>
+		<div class="subject-list">
+
+			<div class="subject"
+			[ngClass]="{
+				'non-lu': !subject.read,
+				'lu': subject.read
+			}"
+			*ngFor="let subject of subjects"
+			routerLink="/forum/sujet/{{subject.subject_uid}}">
+				<div class="left">
+					<h3 class="subject-title">
+						{{subject.name}}
+					</h3>
+				</div>
+				<div class="right">
+					<button class="favoris" (click)="OnAddFav(subject._id)">♥</button>
+					<!-- <p class="num-messages"><span class="num">123</span> Messages</p> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

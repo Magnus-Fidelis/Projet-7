@@ -1,0 +1,77 @@
+
+
+
+<div class="container">
+	<div class="subject">
+		<h2>
+		{{subject[0].name}}
+		</h2>
+		<div class="pagination">
+			<a *ngIf="currentPage > 1" routerLink="/forum/topic/{{currentPage - 1}}">🠜 </a>
+			<p *ngIf="currentPage == 1" >🠜</p>
+			<p>- Page {{currentPage}}/{{pageCount}} -</p>
+			<a *ngIf="currentPage < pageCount" routerLink="/forum/topic/{{currentPage + 1}}">🠞</a>
+			<p *ngIf="currentPage >= pageCount" >🠞</p>
+		</div>
+
+		<div class="message-list">
+			<div [ngClass]="{'deleted': message.deleted == true}"  class="message" *ngFor="let message of messagesList; index as i">
+				<div class="left">
+					<div class="avatar">
+						<img src="{{message.avatar}}" alt="avatar de {{message.name}}">
+					</div>
+					<p class="user-name">
+						{{message.name}}
+					</p>
+					<p class="titre">
+						{{message.title}}
+					</p>
+					<p class="date">
+						Le {{ message.datecreated | date: "dd/MM/yy à HH:mm" }}
+						<br><br>
+						<span *ngIf="message.dateupdated != null">Edité le {{ message.dateUpdated | date: "dd/MM/yy à HH:mm" }}</span>
+					</p>
+				</div>
+				<div class="right" [ngClass]="{'highlighted': editMode == message.message_uid}">
+					<ul>
+						<li *ngIf="message.canEdit == true && editMode == message.message_uid"><a (click)="onEditMessage(message._uid, i)" >Accepter la modification</a></li>
+						<li *ngIf="message.canEdit == true && editMode == message.message_uid"><a (click)="changeEditMode(message.message_uid)" >Annuler la modification</a></li>
+
+
+						<li *ngIf="message.canEdit == true && editMode != message.message_uid && deleteMode != message.message_uid"><a (click)="changeEditMode(message.message_uid)" >Modifier</a></li>
+						<li *ngIf="message.canDelete == true && editMode != message.message_uid && deleteMode != message.message_uid" ><a (click)="changeDeleteMode(message.message_uid)" >Supprimer</a></li>
+
+						<li *ngIf="message.canDelete == true && deleteMode == message.message_uid" ><a (click)="onDeleteMessage(message.message_uid, i)" >Supprimer</a></li>
+						<li *ngIf="message.canEdit == true && deleteMode == message.message_uid"><a (click)="changeDeleteMode(message.message_uid)" >Ne pas supprimer !</a></li>
+
+					</ul>
+
+					<p *ngIf="message.canEdit == false || editMode != message.message_uid"
+					class="message-text fr-view"
+					[innerHTML]="message.texts | safe">
+					</p>
+
+					<p  *ngIf="message.canEdit == true && editMode == message.message_uid"
+					id="edittext{{message._uid}}"
+					class="message-text"
+					[froalaEditor]="froalaOption"
+					[innerHTML]="message.text | safe"></p>
+
+					<p class="signature">{{message._user.signature}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="new-message">
+		<form #newMessage="ngForm" (ngSubmit)="onPostMessage(newMessage)">
+			<div class="field">
+					<textarea [(ngModel)]="froalaContent" [froalaEditor]="froalaOption" id="text" name="text" wrap="off" required>
+						Votre message
+					</textarea>
+			</div>
+
+			<button class="submit" type="submit">Envoyer</button>
+		</form>
+	</div>
+</div>
+

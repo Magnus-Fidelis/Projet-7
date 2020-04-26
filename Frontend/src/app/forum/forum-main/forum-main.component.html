@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="category" *ngFor="let category of categories">
+		<div [ngClass]="{'selected': currentCategory == category._id }" class="singlecategory">
+			<h2 (click)="getTopicsfromCategory(category.name)">
+				{{category.name}}
+			</h2>
+			<a routerLink="/forum/edit-topic/{{category.name}}">Nouveau topic </a>
+		</div>
+		<div
+		[@openClose]="{value: currentCategory == category.name, params: {startHeight: topics.length * 80}}"
+		*ngIf="currentCategory == category.name"
+		class="topic-list"
+		>
+			<div class="topic" *ngFor="let topic of topics" routerLink="/forum/topic/{{topic.topic_uid}}">
+				<div class="left">
+					<h3 class="topic-title">
+						{{topic.name}}
+					</h3>
+					<p class="desc">{{topic.description}}</p>
+				</div>
+				<div class="right">
+					<!-- <p class="num-subject"><span class="num">123</span> Sujets</p>
+					<p class="num-messages"><span class="num">123</span> Messages</p> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

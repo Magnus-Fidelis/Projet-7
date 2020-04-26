@@ -1,0 +1,128 @@
+@import 'var'
+
+.side
+	position: fixed
+	top: 0
+	left: 0
+	height: 100vh
+	background-color: $ui-background
+	width: 20%
+	color: white
+	border-right: 1px solid $ui-highlight
+	overflow: auto
+.main
+	display: flex
+	margin: 25px
+	margin-left: calc(20% + 25px)
+	border: 1px solid $ui-highlight
+	height: calc(100vh - 50px)
+	width: calc(90% -50px)
+	min-width: fit-content
+	background-color: $ui-background
+
+	.content
+		width: 88%
+	.nav-bar
+		padding: 10px
+		background-color: rgba( $purple, .5 )
+		border-right: 1px solid $ui-highlight
+		width: 12%
+		height: 100%
+		overflow-y: scroll
+		-ms-overflow-style: none
+		&::-webkit-scrollbar
+			display: none
+		h2
+			font-size: 1.6em
+			margin-bottom: 10px
+		.shortcut-list
+			padding-bottom: 10px
+			margin-bottom: 10px
+			&:not(:last-child)
+				border-bottom: 1px solid $ui-highlight
+			li
+				width: calc(100% - 15px)
+				margin-left: 15px
+				margin-bottom: 5px
+				font-size: 1.4em
+				list-style-type: disc
+				color: #999
+				position: relative
+				transition: .2s ease-in-out all
+				cursor: pointer
+				.button-image
+					width: 10px
+					height: 10px
+					position: absolute
+					left: 90%
+					top: 2px
+					fill: rgba(cyan, 0.2)
+				&.non-lu
+					color: $ui-highlight
+				&::after
+					pointer-events: none
+					content: ''
+					position: absolute
+					left: -25px
+					top: 0
+					height: 100%
+					width: calc(100% + 35px)
+					background-color: $ui-highlight
+					opacity: 0.5
+					transform-origin: left
+					transform: scaleX(0)
+				&:hover
+					color: white
+					&::after
+						animation: list-effect .5s forwards
+				p.item
+					text-overflow: ellipsis
+					white-space: nowrap
+					overflow: hidden
+					width: 95%
+
+@keyframes list-effect
+	0%
+		transform-origin: left
+		transform: scaleX(0)
+	50%
+		transform-origin: left
+		transform: scaleX(1)
+	50.0001%
+		transform-origin: right
+	100%
+		transform: scaleX(0)
+		transform-origin: right
+.mobile
+	display: none
+.hamburger
+	display: none
+@media (max-device-width: 768px)
+	.nav-bar
+		display: none
+	.side
+		display: none
+		background-color: rgba($ui-background, 0.9)
+	.mobile
+		display: inline
+		width: 100%
+		display: flex
+		flex-direction: column
+		align-items: center
+		font-size: 1.15em
+		z-index: 1
+	.hamburger
+		display: inline
+		z-index: 1
+	.display
+		display: none
+	.svg
+		position: absolute
+		fill: rgba(cyan, 0.6)
+		border: 1px solid rgba($ui-highlight,0.8)
+		z-index: 2
+	.main
+		margin-left: calc(10% + 25px)
+		.content
+			width: 100%
+

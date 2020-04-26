@@ -1,0 +1,19 @@
+<div class="menu-list">
+	<ul class="button-list">
+		<li class="button-list-elem" *ngFor="let button of button_list">
+			<!-- Affiche la liste des boutons-->
+			<div class="interface-button">
+				<app-neon-button (click)="openInterfaceDetails(button.name)" [name]="button.name">
+					<div class="wrapper">
+						<svg-icon
+						class="button-image"
+						src="{{button.icon}}"
+						[applyCss]="true"
+						[stretch]="true"
+						></svg-icon>
+					</div>
+				</app-neon-button>
+			</div>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,21 @@
+<div class="ernergy-generator box">
+	<span class="horizontaux"></span>
+	<span class="verticaux"></span>
+	<span class="horizontaux"></span>
+	<span class="verticaux"></span>
+
+	<p class="title" *ngIf="energyPercent > 0">Réserve énergétique</p>
+	<app-glitch-text [text]="'BLACKOUT'" *ngIf="energyPercent == 0"></app-glitch-text>
+	<app-energy-indicator-display-bar [energyPercent]="energyPercent" [isAnimated]="isAnimated"></app-energy-indicator-display-bar>
+	<p class="percent">{{energyPercent}}%</p>
+</div>
+
+<div class="temp">
+	<button (click)="setPercent(0)">0%</button>
+	<button (click)="setPercent(5)">5%</button>
+	<button (click)="setPercent(25)">25%</button>
+	<button (click)="setPercent(50)">50%</button>
+	<button (click)="setPercent(75)">75%</button>
+	<button (click)="setPercent(100)">100%</button>
+	<button (click)="animateIt(5000, 100)">Animer</button>
+</div>

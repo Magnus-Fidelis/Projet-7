@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAC;EACV,WAAW,EAAE,IAAI;CAQI;;AATtB,AAEC,UAFS,CAET,KAAK,CAAC;EACL,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,GAAG;EACZ,gBAAgB,EAAE,SAAS;CAGT;;AATpB,AAOE,UAPQ,CAET,KAAK,CAKJ,GAAG,CAAC;EACH,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CAAG",
+    "sources": [
+        "private-message-main.component.sass"
+    ],
+    "names": [],
+    "file": "private-message-main.component.css"
+}

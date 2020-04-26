@@ -1,0 +1,95 @@
+<div class="side">
+	<app-sidebar></app-sidebar>
+</div>
+
+<div class="hamburger">
+	<svg-icon (click)='onClick()' class="hamburger svg" src='../../assets/icons/Hamburger_icon.svg' [@Highlight]="mobile"> </svg-icon>
+	<div class="side" [ngClass]="{'mobile': mobile ==true}" [@openClose]="mobile">
+	<app-sidebar></app-sidebar>
+		<div class="nav-bar mobile">
+		<div class="fav-block">
+			<h2>Navigation rapide</h2>
+
+			<ul class="shortcut-list fav">
+				<li *ngFor="let fav of favoris">
+					<svg-icon class="button-image" src="{{button.icon}}" [applyCss]="true" [stretch]="true" (click)="onDelete(fav._id)"> </svg-icon>
+					<p class="item" routerLink="/forum/sujet/{{fav._id}}">
+						{{fav.name}}
+
+					</p>
+				</li>
+			</ul>
+		</div>
+
+		<div class="last-topic-block">
+			<h2>Derniers sujets</h2>
+			<ul class="shortcut-list last-topics">
+				<li *ngFor="let subject of lastSubjects"
+				routerLink="/forum/sujet/{{subject._id}}"
+				[ngClass]="{'non-lu': !subject.read}">
+					<p class="item" >
+						{{subject.name}}
+					</p>
+				</li>
+			</ul>
+		</div>
+ Adieu monde cruel
+		<div class="modos-block">
+			<h2>Modérateurs</h2>
+			<ul class="shortcut-list modos">
+				<li *ngFor="let modo of modos">
+					<p class="item">
+						{{modo.name}}
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+<div class="main">
+	<div class="nav-bar">
+		<div class="fav-block">
+			<h2>Navigation rapide</h2>
+
+			<ul class="shortcut-list fav">
+				<li *ngFor="let fav of favoris">
+					<svg-icon class="button-image" src="{{button.icon}}" [applyCss]="true" [stretch]="true" (click)="onDelete(fav._id)"> </svg-icon>
+					<p class="item" routerLink="/forum/sujet/{{fav._id}}">
+						{{fav.name}}
+
+					</p>
+				</li>
+			</ul>
+		</div>
+
+		<div class="last-topic-block">
+			<h2>Derniers sujets</h2>
+			<ul class="shortcut-list last-topics">
+				<li *ngFor="let subject of lastSubjects"
+				routerLink="/forum/sujet/{{subject._id}}"
+				[ngClass]="{'non-lu': !subject.read}">
+					<p class="item" >
+						{{subject.name}}
+					</p>
+				</li>
+			</ul>
+		</div>
+
+		<div class="modos-block">
+			<h2>Modérateurs</h2>
+			<ul class="shortcut-list modos">
+				<li *ngFor="let modo of modos">
+					<p class="item">
+						{{modo.name}}
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="content">
+		<router-outlet></router-outlet>
+	</div>
+</div>

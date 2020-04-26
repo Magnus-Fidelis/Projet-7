@@ -1,0 +1,116 @@
+@import 'var'
+
+.character-main-infos
+	background-color: $ui-background
+	padding: 20px
+	border: 2px solid $ui-highlight
+	border-bottom: none
+	clip-path: polygon(20px 0%, calc(100% - 20px) 0%, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0% 20px)
+	position: relative
+	&::after
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background-color: $ui-highlight
+		clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 100% 100%, 100% 20px, calc(100% - 20px) 0, 20px 0, 0 20px, 0 0)
+	&::before
+		content: ''
+		position: absolute
+		bottom: 0
+		left: calc(25% - 2px)
+		width: calc(75% + 2px)
+		border-bottom: 2px solid $ui-highlight
+	.top
+		display: flex
+		justify-content: space-between
+		.character
+			width: 50%
+			display: flex
+			justify-content: flex-start
+			.avatar
+				width: 70px
+				height: 70px
+			.name-and-title
+				display: flex
+				flex-direction: column
+				justify-content: center
+				margin: 0 7px
+				.title
+					font-size: 1.4em
+				.name
+					font-size: 2.2em
+		.sub-infos
+			display: flex
+			flex-direction: column
+			justify-content: center
+			width: 50%
+			.text-and-bar
+				display: flex
+				margin-bottom: 7px
+				align-items: center
+				.text
+					font-size: 1.2em
+					width: 15%
+				&.hunger .bar
+					border: thin solid $lime
+					span, &::after
+						background-color: $lime
+				&.thrist .bar
+					border: thin solid $navy
+					span, &::after
+						background-color: $navy
+			.money
+				font-size: 1.4em
+	.exp, .pv
+		display: flex
+		margin: 7px 0
+		align-items: center
+		.label
+			font-size: 1.2em
+			width: 20%
+			.number
+				font-size: 2em
+	.exp .bar
+		border: thin solid $ui-highlight
+		span, &::after
+			background-color: $ui-highlight
+	.pv .bar
+		border: thin solid $red
+		span, &::after
+			background-color: $red
+
+	.stats
+		display: flex
+		margin-bottom: 7px
+		justify-content: space-between
+		text-align: center
+		li
+			font-size: 1.2em
+			.text
+				font-weight: $bold
+
+.bar
+	margin-left: 7px
+	width: 85%
+	height: 10px
+	clip-path: polygon(0 50%, 5px 0, calc( 100% - 5px ) 0, 100% 50%, calc( 100% - 5px ) 100%, 5px 100% )
+	position: relative
+	background-color: $purple
+	&::after
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+		clip-path: polygon(0 0, -1px 50%, 5px 0, calc( 100% - 5px ) 0, calc(100% - 1px) 50%, calc( 100% - 5px ) 100%, 5px 100%, -1px 50%, 0 100%, 100% 100%, 100% 0, 5px 0)
+	span
+		position: absolute
+		left: -1px
+		top: -1px
+		height: calc(100% + 2px)
+		clip-path: polygon(0 50%, 5px 0, calc( 100% - 5px ) 0, 100% 50%, calc( 100% - 5px ) 100%, 5px 100% )
+		transition: width .5s ease-in-out

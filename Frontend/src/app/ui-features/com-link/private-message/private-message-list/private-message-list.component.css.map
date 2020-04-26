@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "private-message-list.component.sass"
+    ],
+    "names": [],
+    "file": "private-message-list.component.css"
+}

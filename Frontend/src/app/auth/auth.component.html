@@ -1,0 +1,91 @@
+<div class="container">
+
+	<div *ngIf="!authStatus" class="card-container">
+		<div class="card" [ngClass]="{'flipped': flipped, 'error-message': logInError != ''}">
+			<div class="card-front">
+				<h2>Connexion</h2>
+				<p class="error" [ngClass]="{'hidden': logInError == ''}">{{ logInError }}</p>
+				<form #v="ngForm" (ngSubmit)="onSignIn(v)" >
+					<div class="field">
+							<input type="email" id="email" name="email" placeholder=" " ngModel required>
+							<label for="email">Email</label>
+							<span class="bar"></span>
+					</div>
+
+					<div class="field">
+						<input type="password" id="password" name="password" placeholder=" " ngModel required>
+						<label for="password">Mot de passe</label>
+						<span class="bar"></span>
+					</div>
+					<div class="button">
+						<app-neon-button [width]="'auto'">
+							<button class="submit" type="submit" [disabled]="v.invalid">Connexion</button>
+						</app-neon-button>
+					</div>
+				</form>
+				<p>Pas encore inscrit ? <span (click)="changeside()" class="color-link">Inscription</span></p>
+			</div><!-- .card-front -->
+
+			<div class="card-back" [ngClass]="{'flipped': flipped, 'error-message': logInError != ''}">
+				<h2 class ="inscription">Inscription</h2>
+				<p class="error" [ngClass]="{'hidden': logInError == ''}">{{ logInError }}</p>
+				<p class="feedback" [ngClass]="{'hidden': signupFeedback == ''}">{{ signupFeedback }}</p>
+				<form class="inscription" #f="ngForm" (ngSubmit)="onSubscribe(f)" >
+					<div class="field">
+							<input type="email" id="email" name="email" placeholder=" " ngModel required>
+							<label for="email">Email</label>
+							<span class="bar"></span>
+					</div>
+
+					<div class="field">
+						<input type="text" id="name" name="name" placeholder=" " ngModel required>
+						<label for="name">Nom de compte</label>
+						<span class="bar"></span>
+					</div>
+
+					<div class="field">
+						<input type="password" id="password" name="password" placeholder=" " ngModel required>
+						<label for="password">Mot de passe</label>
+						<span class="bar"></span>
+					</div>
+
+					<div class="field">
+						<input type="password" id="password-confirm" name="password-confirm" placeholder=" " ngModel required>
+						<label for="password">Confirmation du mot de passe</label>
+						<span class="bar"></span>
+					</div>
+
+					<div class="checkbox">
+						<input type="checkbox" id="CGU" name="CGU" value="CGU" ngModel required>
+						<label for="CGU">je reconnais avoir lu et accepté l'ensemble des <a routerLink="/legal">conditions générales</a> du site.</label><br>
+					</div>
+
+					<div class="button">
+						<app-neon-button [width]="'auto'">
+							<button class="submit" type="submit" [disabled]="f.invalid">S'inscrire</button>
+						</app-neon-button>
+					</div>
+				</form>
+				<p>Déjà inscrit ? <span (click)="changeside()" class="color-link">Connexion</span></p>
+			</div> <!-- .card-back -->
+		</div> <!-- .card -->
+	</div> <!-- .card-container -->
+
+	<div *ngIf="authStatus" class="container">
+		<div class="logout">
+			<h2>Déconnexion</h2>
+			<div class="button">
+				<app-neon-button [width]="'auto'">
+					<button class="submit" (click)="onSignOut()">Déconnexion</button>
+				</app-neon-button>
+			</div>
+			<div class="button">
+				<app-neon-button [width]="'auto'">
+					<button class="submit" routerLink="/forum">Retour au forum</button>
+				</app-neon-button>
+			</div>
+		</div>
+	</div>
+
+</div> <!-- .container -->
+

@@ -1,0 +1,81 @@
+@import 'var'
+
+
+.container
+	margin: 15px
+	display: flex
+	flex-direction: column
+	width: calc(100% - 30px)
+	.category
+		width: 100%
+		margin-bottom: 15px
+		.singlecategory
+			background-color: $ui-background
+			border: 1px solid $ui-highlight
+			display: flex
+			align-items: center
+			position: relative
+			transition: all .5s ease-in-out
+			/*&.selected
+				box-shadow: 0 0 5px $ui-highlight, 0 0 10px $ui-highlight, 0 0 20px $ui-highlight*/
+			h2
+				display: block
+				width: 100%
+				font-size: 4em
+				text-align: center
+				padding: 15px 0
+				cursor: pointer
+			a
+				color: white
+				position: absolute
+				right: 15px
+				text-decoration: none
+				&:hover
+					color: $ui-highlight
+		.topic-list
+			width: 80%
+			margin: 0 10%
+			background-color: $ui-background
+			margin-top: -1px
+			position: relative
+			&::after
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				background-color: $ui-background
+			.topic
+				border: 1px solid $ui-highlight
+				display: flex
+				justify-content: space-between
+				padding: 15px
+				height: 80px
+				cursor: pointer
+				transition: .2s all ease-in-out
+				&:hover
+					box-shadow: 0 0 10px $ui-highlight, 0 0 20px $ui-highlight, 0 0 40px $ui-highlight
+				.topic-title
+					font-size: 3em
+					text-transform: capitalize
+			.right
+				display: flex
+				flex-direction: column
+				justify-content: center
+				align-items: flex-end
+@media (max-width: 768px)
+	a
+		right: 5px
+		top: 5px
+	.container
+		margin: 15px auto auto auto
+
+@media (min-width: 1921px)
+	.container
+		.category
+			width: 70%
+			margin: auto
+			margin-top: 30px
+
+
+

@@ -1,0 +1,21 @@
+<div class="interfaces-container">
+	<div class="messages-container">
+		<app-neon-button class="messages" (click)="select('messages')"><p class="interface">Messages</p></app-neon-button>
+		<app-neon-button class="new"><p class="interface">Écrire</p></app-neon-button>
+	</div>
+
+	<app-neon-button
+	*ngFor="let interface of interface_list"
+	class="panel-button work"
+	[ngClass]="{'fade-out': selected != '' && selected != interface.type,
+							'clicked' : selected != interface.type}"
+	>
+		<p class="interface">{{interface.text}}</p>
+	</app-neon-button>
+
+	<div class="content"
+	[ngClass]="{'closed': selected == ''}"
+	>
+		<app-private-message-list *ngIf="selected == 'messages'"></app-private-message-list>
+	</div>
+</div>
