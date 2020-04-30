@@ -1,14 +1,14 @@
 <div class="container">
 	<div class="block">
 		<h1>
-			Bienvenue sur le forum Trinity Fall
+			Bienvenue sur le forum de Groupomania !
 		</h1>
 	</div>
 	<div class="block">
 		<h2>Catégories</h2>
 		<ul class="categories">
 			<li class="list-items" *ngFor="let category of categories" >
-				<h3 class="non-lu" [ngClass]="{'lu': category.read === 'lu', 'non-lu': category.read === 'non-lu'}"><a [routerLink]="'/forum/' +category._id">{{category.name}}</a></h3>
+				<h3 class="non-lu" [ngClass]="{'lu': category.read === 'lu', 'non-lu': category.read === 'non-lu'}"><a [routerLink]="'/forum/' +category.category_uid">{{category.name}}</a></h3>
 			</li>
 			<li><a routerLink="/forum/editCategory"> Créer une nouvelle catégorie </a> </li> <!-- ajouter un if pour admin-->
 		</ul>

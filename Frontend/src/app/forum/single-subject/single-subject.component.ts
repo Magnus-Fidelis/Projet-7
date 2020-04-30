@@ -43,6 +43,9 @@ export class SingleSubjectComponent implements OnInit {
   }
 
 	onEditMessage(id, index){
+		console.log(id)
+		console.log(index)
+		let idcorrect = id + 1
 		let messageContent = document.getElementById('edittext'+id).firstElementChild.firstElementChild.innerHTML
 		const message = {
 			text: messageContent,

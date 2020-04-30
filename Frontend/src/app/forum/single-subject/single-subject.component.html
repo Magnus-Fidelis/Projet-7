@@ -29,12 +29,12 @@
 					<p class="date">
 						Le {{ message.datecreated | date: "dd/MM/yy à HH:mm" }}
 						<br><br>
-						<span *ngIf="message.dateupdated != null">Edité le {{ message.dateUpdated | date: "dd/MM/yy à HH:mm" }}</span>
+						<span *ngIf="message.dateupdated != null">Edité le {{ message.dateupdated | date: "dd/MM/yy à HH:mm" }}</span>
 					</p>
 				</div>
 				<div class="right" [ngClass]="{'highlighted': editMode == message.message_uid}">
 					<ul>
-						<li *ngIf="message.canEdit == true && editMode == message.message_uid"><a (click)="onEditMessage(message._uid, i)" >Accepter la modification</a></li>
+						<li *ngIf="message.canEdit == true && editMode == message.message_uid"><a (click)="onEditMessage(message.message_uid, i)" >Accepter la modification</a></li>
 						<li *ngIf="message.canEdit == true && editMode == message.message_uid"><a (click)="changeEditMode(message.message_uid)" >Annuler la modification</a></li>
 
 
@@ -52,10 +52,10 @@
 					</p>
 
 					<p  *ngIf="message.canEdit == true && editMode == message.message_uid"
-					id="edittext{{message._uid}}"
+					id="edittext{{message.message_uid}}"
 					class="message-text"
 					[froalaEditor]="froalaOption"
-					[innerHTML]="message.text | safe"></p>
+					[innerHTML]="message.texts | safe"></p>
 
 					<p class="signature">{{message._user.signature}}</p>
 				</div>

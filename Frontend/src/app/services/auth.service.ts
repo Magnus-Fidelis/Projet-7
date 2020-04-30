@@ -93,7 +93,6 @@ export class AuthService {
 
 	}
 
-
 }
 
 /*	saveCategoryToServer(forum) {

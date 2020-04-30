@@ -19,7 +19,6 @@ export class EditCategoryComponent implements OnInit {
 		console.log(form)
 		const forum = {
 			name: form.value['name'],
-			status: 'non-lu'
 		}
 
 		this.forumService.saveCategoryToServer(forum);

@@ -5,7 +5,7 @@ const auth_admin = require('../../middleware/auth_admin')
 
 const controller = require('../../controllers/forum/subjects')
 
-router.get('/', auth_admin, controller.getSubjects);
+router.get('/', auth, controller.getSubjects);
 
 router.post('/', auth, controller.createSubjects);
 
@@ -19,7 +19,9 @@ router.delete('/:id', auth, controller.deleteSubject);
 
 router.get('/fromTopic/:id', auth, controller.getSubjectFromTopic);
 
+router.get('last10', auth, controller.getSubjects);
+
 
 module.exports = router;
 
-  
+  // bas

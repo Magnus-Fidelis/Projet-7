@@ -25,8 +25,10 @@ router.delete('/deleteuser', userCtrl.deleteUser);
 Gestion des Favoris
 ------------
 */
-router.post('/addfavoris', userCtrl.addFavoris);
+router.put('/addfavoris', userCtrl.addFavoris);
 router.get('/getfavoris', userCtrl.getFavoris);
+router.delete('/deletefavoris/:id', userCtrl.deleteFavoris);
+
 
 router.put('/modifyuser', multer, userCtrl.updateUser);
 

@@ -32,7 +32,6 @@ exports.getTopicById = (req, res, next) => {
 		if (error){
 			throw error
 		}
-		console.log(results.rows)
 		res.status(200).json(results.rows);
 	})
 
@@ -44,13 +43,7 @@ exports.createTopics = (req, res, next) => {
 
 	pool.query('INSERT INTO topics (name, description, _category, topic_uid) VALUES ($1, $2, $3, uuid_generate_v4())', [req.body.name, req.body.description, req.body._category], (error, results) => {
 		if (error){
-			throw error
-		}
-		let name = req.body.name;
-		let nameReg = /^[a-zA-Z\-]+$/; 
-	
-		if (!(name).match(nameReg) ) {
-			console.log(req, "Tentative d'intrusion")
+			console.log(error)
 		}
 	
 		res.status(200).json({message: "Topic crée avec succès"})
@@ -61,7 +54,7 @@ exports.createTopics = (req, res, next) => {
 exports.getTopicFromCategory = (req, res, next) => {
 	pool.query('SELECT * FROM topics where _category = $1',  [req.params.id], (error, results) => {
 		if (error){
-			throw error
+			console.log(error)
 		}
 		res.status(200).json(results.rows);
 	})
@@ -72,7 +65,7 @@ exports.updateTopic = (req, res, next) => {
 
 	pool.query('UPDATE topics SET name = $1', (req.body.name), (error, results) => {
 		if (error){
-			throw error
+			console.log(error)
 		}
 		res.status(200).json();
 	})
@@ -82,7 +75,7 @@ exports.updateTopic = (req, res, next) => {
 exports.deleteTopics = (req, res, next) => {
 	pool.query('DELETE FROM topics WHERE name = $1', (req.body.name), (error, results) => {
 		if (error){
-			throw error
+			console.log(error)
 		}
 		res.status(200).json();
 	})

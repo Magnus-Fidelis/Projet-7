@@ -12,8 +12,8 @@
 
 			<ul class="shortcut-list fav">
 				<li *ngFor="let fav of favoris">
-					<svg-icon class="button-image" src="{{button.icon}}" [applyCss]="true" [stretch]="true" (click)="onDelete(fav._id)"> </svg-icon>
-					<p class="item" routerLink="/forum/sujet/{{fav._id}}">
+					<svg-icon class="button-image" src="{{button.icon}}" [applyCss]="true" [stretch]="true" (click)="onDelete(fav.subject)"> </svg-icon>
+					<p class="item" routerLink="/forum/sujet/{{fav.subject}}">
 						{{fav.name}}
 
 					</p>
@@ -25,7 +25,7 @@
 			<h2>Derniers sujets</h2>
 			<ul class="shortcut-list last-topics">
 				<li *ngFor="let subject of lastSubjects"
-				routerLink="/forum/sujet/{{subject._id}}"
+				routerLink="/forum/sujet/{{subject.subject_uid}}"
 				[ngClass]="{'non-lu': !subject.read}">
 					<p class="item" >
 						{{subject.name}}
@@ -56,8 +56,8 @@
 
 			<ul class="shortcut-list fav">
 				<li *ngFor="let fav of favoris">
-					<svg-icon class="button-image" src="{{button.icon}}" [applyCss]="true" [stretch]="true" (click)="onDelete(fav._id)"> </svg-icon>
-					<p class="item" routerLink="/forum/sujet/{{fav._id}}">
+					<svg-icon class="button-image" src="{{button.icon}}" [applyCss]="true" [stretch]="true" (click)="onDelete(fav.subject)"> </svg-icon>
+					<p class="item" routerLink="/forum/sujet/{{fav.subject}}">
 						{{fav.name}}
 
 					</p>
@@ -69,7 +69,7 @@
 			<h2>Derniers sujets</h2>
 			<ul class="shortcut-list last-topics">
 				<li *ngFor="let subject of lastSubjects"
-				routerLink="/forum/sujet/{{subject._id}}"
+				routerLink="/forum/sujet/{{subject.subject_uid}}"
 				[ngClass]="{'non-lu': !subject.read}">
 					<p class="item" >
 						{{subject.name}}

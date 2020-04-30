@@ -119,14 +119,13 @@ onClick(){
 		this.favorisSubscription = this.forumService.favSubject.subscribe(
 			(favoris: any[]) => {
 				this.favoris = favoris;
-				console.log(this.favoris);
 			}
 		);
 		this.forumService.getFavoris();
 		this.lastSubjectsSubscription = this.forumService.lastSubjectsSubject.subscribe(
 			(lastSubjects: any[]) => {
 				this.lastSubjects = lastSubjects;
-				console.log(this.favoris);
+				console.log(lastSubjects, 'lastsubject');
 			}
 		);
 		this.forumService.getLast10Subjects();

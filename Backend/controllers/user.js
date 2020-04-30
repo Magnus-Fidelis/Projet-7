@@ -96,12 +96,12 @@ exports.signup = (req, res, next) => {
 
 		
 		let transporter = nodemailer.createTransport({
-			host: "mail.trinityfall.com",
+			host: "",
 			port: 25,
 			secure: false, // true for 465, false for other ports
 			auth: {
 				user: 'admins@trinityfall.com', // user
-				pass: 'r#f4otamU*SDU22mgYX8nBSipvqLr5' // password
+				pass: '' // password
 			},
 			tls: {
 				// do not fail on invalid certs
@@ -333,9 +333,9 @@ exports.addFavoris = (req, res, next) => {
 	const decodedToken = jwt.verify(token, 'si@fks3rUAf@wNx$89b$v%Q^&#U#!g6pX4J#rvqo%8te#AoCLX7pueDLCLHe%hMa%QHTuf&jEm*8MLcM3cMkPC46z^EP7CmYg9t^9DJ!ZaVPRoD6dC&3sGLj2SXfD7z5');
 	const userId = decodedToken.userId;
 	const fav = req.body.favoris;
+	console.log(userId, fav);
 
-
-  pool.query('UPDATE person  SET favoris = array_append(favoris, $1) WHERE user_uid=$2', [fav, userId], (error, results) => {
+  pool.query('INSERT INTO favoris (users, subject) VALUES ($1, $2)', [userId, fav], (error, results) => {
     if (error) {
       throw error
 		}
@@ -346,24 +346,39 @@ exports.addFavoris = (req, res, next) => {
 }
 
 exports.getFavoris = (req, res, next) => {
-	/*
-	const token = req.headers.authorization.split(' ')[1];
-	const decodedToken = jwt.verify(token, 'si@fks3rUAf@wNx$89b$v%Q^&#U#!g6pX4J#rvqo%8te#AoCLX7pueDLCLHe%hMa%QHTuf&jEm*8MLcM3cMkPC46z^EP7CmYg9t^9DJ!ZaVPRoD6dC&3sGLj2SXfD7z5');*/
-	const userId = '08d5e3ea-c8ea-4b92-a81d-5b9d2719f326' /*decodedToken.userId;*/
 
-  pool.query('SELECT favoris FROM person WHERE user_uid=$1', [userId], (error, results) => {
+	const token = req.headers.authorization.split(' ')[1];
+	const decodedToken = jwt.verify(token, 'si@fks3rUAf@wNx$89b$v%Q^&#U#!g6pX4J#rvqo%8te#AoCLX7pueDLCLHe%hMa%QHTuf&jEm*8MLcM3cMkPC46z^EP7CmYg9t^9DJ!ZaVPRoD6dC&3sGLj2SXfD7z5');
+	const userId = decodedToken.userId;
+
+  pool.query('SELECT * FROM favoris LEFT JOIN subjects ON favoris.subject = subjects.subject_uid where users = $1', [userId], (error, results) => {
     if (error) {
       throw error
 		}
 
-		res.status(200).send(results);
+		res.status(200).send(results.rows);
   })
 
 } 
 
+
+exports.deleteFavoris = (req, res, next) => {
+	const token = req.headers.authorization.split(' ')[1];
+	const decodedToken = jwt.verify(token, 'si@fks3rUAf@wNx$89b$v%Q^&#U#!g6pX4J#rvqo%8te#AoCLX7pueDLCLHe%hMa%QHTuf&jEm*8MLcM3cMkPC46z^EP7CmYg9t^9DJ!ZaVPRoD6dC&3sGLj2SXfD7z5');
+	const userId = decodedToken.userId;
+
+	console.log('ici')
+
+	pool.query('DELETE FROM FAVORIS WHERE subject=$1 AND users=$2', [req.params.id, userId ], (error, results) => {
+		if (error){
+			throw error
+		}
+		res.status(200).json();
+	})
+}
+
 exports.confirmationPost = (req, res, next) => {
 
-	console.log('im here')
 	const token = req.params.id;
 	const decodedToken = jwt.verify(token, 'si@fks3rUAf@wNx$89b$v%Q^&#U#!g6pX4J#rvqo%8te#AoCLX7pueDLCLHe%hMa%QHTuf&jEm*8MLcM3cMkPC46z^EP7CmYg9t^9DJ!ZaVPRoD6dC&3sGLj2SXfD7z5');
 	const email = decodedToken.userEmail;

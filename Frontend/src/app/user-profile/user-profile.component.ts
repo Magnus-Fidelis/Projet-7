@@ -5,7 +5,7 @@ import {user} from '../models/user.model';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { NgForm } from "@angular/forms";
 import {environment} from "../../environments/environment"
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -17,7 +17,7 @@ export class UserProfileComponent implements OnInit {
 	selectedFile: File = null;
 	baseURL: string = environment.baseURL
 
-  constructor(private Authservice: AuthService, private http: HttpClient) {
+  constructor(private Authservice: AuthService, private http: HttpClient, private router: Router) {
 
 	 }
 
@@ -57,6 +57,16 @@ export class UserProfileComponent implements OnInit {
 			}
 
 		);
+	}
+
+	onDelete(){
+		this.http.delete(this.baseURL+'/api/user/deleteuser')
+		.subscribe(
+			(response) => {
+				this.router.navigate(['/']);
+			},
+			(error) => {
+			})
 	}
 	onPassword(form: NgForm){
 		const user = {

@@ -53,8 +53,6 @@ const date = new Date();
 };
 
 exports.getSubjectFromTopic = (req, res, next) => {
-	console.log(req.params.id)
-	console.log(req.body);
 	pool.query('SELECT * FROM subjects where _topic = $1',  [req.params.id], (error, results) => {
 		if (error){
 			throw error
@@ -83,18 +81,11 @@ exports.deleteSubject = (req, res, next) => {
 }; 
 
 exports.getLast10Subjects = async (req, res) => {
-	//grabing current user in database
-/*
-	subjectModel.find({}).limit(10).sort('-_lastUpdate')
-	.then(subjectList => {
-
-			//adding read field to each subject
-			subjectList.forEach(subject => {
-				addReadField(subject, user)
-			})
-			//return to client
-		 	res.status(200).json(subjectList)
-		})
-	.catch(error => res.status(400).json({ error }));*/
+	pool.query('SELECT * FROM subjects ORDER BY _lastupdate ASC LIMIT 10', (error, results) => {
+		if (error){
+			throw error
+		}
+		res.status(200).json(results.rows);
+	})
 }
 

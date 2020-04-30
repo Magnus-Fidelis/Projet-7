@@ -47,4 +47,10 @@ server.on('listening', () => {
   console.log('Listening on ' + bind);
 });
 
+var io = require('socket.io').listen(server);
+
+io.sockets.on('connection', function (socket) {
+	console.log('Un client est connecté !');
+});
+
 server.listen(port);
